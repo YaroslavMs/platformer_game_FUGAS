@@ -6,6 +6,9 @@ TagManager:
   tags:
   - ground
   - wall
+  - DeathCollider
+  - coin
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
