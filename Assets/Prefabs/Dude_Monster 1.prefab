@@ -198,6 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec69b37f60f2ee241afd1286c61dd7f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentLife: 3
   spawn: {fileID: 0}
   checkpoint: {fileID: 0}
 --- !u!114 &33732411
@@ -225,4 +226,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 054682d9eecd1544b89d860d3499fa11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: SecondLevel
+  nextSceneName: FirstLevel
