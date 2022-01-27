@@ -9,6 +9,8 @@ public class Jumping : MonoBehaviour
     public int fallingGravityScale;
     public Rigidbody2D rb;
     private bool _inAir;
+    private bool _buttonIsPressed;
+    private float _savedTime;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -24,6 +26,12 @@ public class Jumping : MonoBehaviour
             rb.gravityScale = fallingGravityScale;
         }
 
+        if (Time.time - _savedTime > 0.05 && _buttonIsPressed)
+        {
+            _savedTime = Time.time;
+            ButtonJump();
+        }
+
         /*if (Input.GetKeyDown(KeyCode.Space) && !_inAir)
         {
             rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
@@ -35,9 +43,21 @@ public class Jumping : MonoBehaviour
         if (!_inAir)
         {
             _inAir = true;
+            rb.velocity = Vector2.zero;
             rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             
+
         }
+    }
+
+    public void PressButton()
+    {
+        _buttonIsPressed = true;
+    }
+
+    public void UnpressButton()
+    {
+        _buttonIsPressed = false;
     }
 
     

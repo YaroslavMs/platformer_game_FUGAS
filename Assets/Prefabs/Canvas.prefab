@@ -140,7 +140,23 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: Jumping, Assembly-CSharp
-          m_MethodName: ButtonJump
+          m_MethodName: PressButton
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Jumping, Assembly-CSharp
+          m_MethodName: UnpressButton
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -389,7 +405,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.75200003}
   m_AnchorMax: {x: 0, y: 0.75200003}
-  m_AnchoredPosition: {x: 141.42847, y: 1.5899658}
+  m_AnchoredPosition: {x: 140.3, y: -12}
   m_SizeDelta: {x: 162.857, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &829662162
@@ -421,7 +437,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: fe93f8b59fc52bf4e8aed76eb6a4cef8, type: 3}
     m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
