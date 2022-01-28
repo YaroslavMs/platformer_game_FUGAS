@@ -12,6 +12,7 @@ public class Respawn : MonoBehaviour
     {
         currentLife = 3;
         transform.position = spawn.transform.position + new Vector3(0,0.5f,0);
+        
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -29,6 +30,7 @@ public class Respawn : MonoBehaviour
         else if (col.gameObject.CompareTag("Checkpoint"))
         {
             _checkpointActivated = true;
+            checkpoint.transform.Find("a").GetComponent<Renderer>().material.SetColor("_Color", Color.magenta);
         }
     }
 

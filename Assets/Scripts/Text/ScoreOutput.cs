@@ -7,9 +7,14 @@ public class ScoreOutput : MonoBehaviour
 {
     public GameObject player;
     public Text score;
-    void Update()
+
+    void Start()
     {
         score.color = Color.white;
+    }
+    void Update()
+    {
+        
         score.text = $"{player.GetComponent<CoinsPickup>()._coinsPickedUp}";
     }
 }

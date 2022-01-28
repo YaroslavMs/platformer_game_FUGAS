@@ -15,7 +15,7 @@ public class Moving : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        //_input = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
+        _input = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
         if (_input == Vector2.zero)
         {
             animator.SetBool("Walking", false);

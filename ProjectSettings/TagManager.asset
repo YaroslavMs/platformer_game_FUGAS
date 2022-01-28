@@ -9,6 +9,7 @@ TagManager:
   - DeathCollider
   - coin
   - Checkpoint
+  - lastFinish
   layers:
   - Default
   - TransparentFX

@@ -38,7 +38,7 @@ public class Jumping : MonoBehaviour
             _inAir = true;
         }*/
     }
-    public void ButtonJump()
+    private void ButtonJump()
     {
         if (!_inAir)
         {
