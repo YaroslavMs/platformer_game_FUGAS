@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class CoinsPickup : MonoBehaviour
 {
@@ -23,7 +24,6 @@ public class CoinsPickup : MonoBehaviour
             PlayerPrefs.SetInt("Score", _coinsPickedUp);
 
         }
-
         if (col.gameObject.CompareTag("lastFinish"))
         {
             PlayerPrefs.SetInt("Score", 0);
@@ -38,8 +38,12 @@ public class CoinsPickup : MonoBehaviour
                         {
                             for (int j = 9; j > i; j--)
                             {
-                                PlayerPrefs.SetInt($"Score{j}", PlayerPrefs.GetInt($"Score{j-1}"));
-                                PlayerPrefs.SetString($"playerName{j}", PlayerPrefs.GetString($"playerName{j-1}"));
+                                if (PlayerPrefs.HasKey($"Score{j - 1}"))
+                                {
+                                    PlayerPrefs.SetInt($"Score{j}", PlayerPrefs.GetInt($"Score{j - 1}"));
+                                    PlayerPrefs.SetString($"playerName{j}",
+                                        PlayerPrefs.GetString($"playerName{j - 1}"));
+                                }
                             }
 
                             PlayerPrefs.SetInt($"Score{i}", _coinsPickedUp);
