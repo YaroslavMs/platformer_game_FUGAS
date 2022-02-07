@@ -8,6 +8,9 @@ public class Respawn : MonoBehaviour
     public GameObject checkpoint;
     private bool _checkpointActivated = false;
     private float _savedTime;
+    public delegate void PlayerDeath(bool a);
+
+    public event PlayerDeath PlayerIsDead;
     void Start()
     {
         currentLife = 3;
@@ -21,6 +24,10 @@ public class Respawn : MonoBehaviour
             _savedTime = Time.time;
             currentLife--;
             hearts[currentLife].SetActive(false);
+            if (currentLife <= 0)
+            {
+                PlayerIsDead?.Invoke(true);
+            }
             if (!_checkpointActivated)
                 transform.position = spawn.transform.position + new Vector3(0,0.5f,0);
             else

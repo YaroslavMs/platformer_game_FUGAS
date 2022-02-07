@@ -14,18 +14,20 @@ public class PauseGame : MonoBehaviour
     {
         _gameIsPaused = false;
         pauseMenu.SetActive(false);
+        player.GetComponent<Respawn>().PlayerIsDead += PlayerIsDead;
     }
 
     private void Update()
     {
-        if (player.GetComponent<Respawn>().currentLife <= 0)
-        {
-            playerIsDead = true;
-        }
         if (playerIsDead)
         {
             Pause();
         }
+    }
+    private void PlayerIsDead(bool a)
+    {
+        playerIsDead = a;
+        player.GetComponent<Respawn>().PlayerIsDead -= PlayerIsDead;
     }
 
     public void Pause()
@@ -44,4 +46,6 @@ public class PauseGame : MonoBehaviour
         }
         
     }
+
+    
 }
