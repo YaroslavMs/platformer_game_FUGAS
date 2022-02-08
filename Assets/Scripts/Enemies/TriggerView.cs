@@ -2,9 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class TriggerView : MonoBehaviour
 {
+    public GameObject enemy;
     public delegate void OnPlayerEnter(bool x, Transform player);
 
     public event OnPlayerEnter PlayerEntered;
@@ -15,6 +17,11 @@ public class TriggerView : MonoBehaviour
             PlayerEntered?.Invoke(true, col.gameObject.transform);
             
         }
+    }
+
+    private void Update()
+    {
+        
     }
 
     private void OnTriggerExit2D(Collider2D other)

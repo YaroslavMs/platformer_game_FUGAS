@@ -11,6 +11,8 @@ TagManager:
   - lastFinish
   - Enemy
   - Attack
+  - wall
+  - view
   layers:
   - Default
   - TransparentFX

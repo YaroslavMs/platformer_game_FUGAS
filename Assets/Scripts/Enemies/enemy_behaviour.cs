@@ -12,6 +12,8 @@ public class enemy_behaviour : MonoBehaviour
     public GameObject rightMax;
     public GameObject viewTrigger;
     public GameObject attackChecker;
+    public BoxCollider2D box1;
+    public BoxCollider2D box2;
 
     private enum States
     {
@@ -23,6 +25,7 @@ public class enemy_behaviour : MonoBehaviour
     private States _currentState;
     private bool _facingRight = true;
     private float _savedTime;
+    private float _invincibilityTime;
     private float _deathTime;
     private float _speed;
     private Animator _animator;
@@ -40,8 +43,9 @@ public class enemy_behaviour : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("Attack"))
+        if (col.gameObject.CompareTag("Attack") && Time.time - _invincibilityTime > 0.4)
         {
+            _invincibilityTime = Time.time;
             _hp -= 2;
         }
     }
@@ -66,7 +70,8 @@ public class enemy_behaviour : MonoBehaviour
     {
         if (_hp <= 0)
         {
-            GetComponent<Collider2D>().enabled = false;
+            box1.enabled = false;
+            box2.enabled = false;
             attackChecker.SetActive(false);
             viewTrigger.SetActive(false);
             _currentState = States.Death;
@@ -74,7 +79,6 @@ public class enemy_behaviour : MonoBehaviour
             _deathTime = Time.time;
             _hp = 1000;
         }
-
 
         switch (_currentState)
         {
