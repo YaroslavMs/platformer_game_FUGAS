@@ -5,11 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - ground
-  - wall
   - DeathCollider
   - coin
   - Checkpoint
   - lastFinish
+  - Enemy
   layers:
   - Default
   - TransparentFX
