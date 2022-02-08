@@ -17,21 +17,33 @@ public class enemy_behaviour : MonoBehaviour
     {
         Wandering,
         Run,
+        Death
     }
 
     private States _currentState;
     private bool _facingRight = true;
     private float _savedTime;
+    private float _deathTime;
     private float _speed;
     private Animator _animator;
     private Transform _playerTransform;
+    private int _hp = 2;
 
     private void Start()
     {
+        gameObject.SetActive(true);
         _animator = GetComponent<Animator>();
         _currentState = States.Wandering;
         viewTrigger.GetComponent<TriggerView>().PlayerEntered += CheckPlayer;
         attackChecker.GetComponent<CheckForAttack>().AttackPerforming += Attack;
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("Attack"))
+        {
+            _hp -= 2;
+        }
     }
 
     private void CheckPlayer(bool x, Transform player)
@@ -52,6 +64,18 @@ public class enemy_behaviour : MonoBehaviour
 
     private void Update()
     {
+        if (_hp <= 0)
+        {
+            GetComponent<Collider2D>().enabled = false;
+            attackChecker.SetActive(false);
+            viewTrigger.SetActive(false);
+            _currentState = States.Death;
+            _animator.SetTrigger("Death");
+            _deathTime = Time.time;
+            _hp = 1000;
+        }
+
+
         switch (_currentState)
         {
             case States.Wandering:
@@ -59,6 +83,13 @@ public class enemy_behaviour : MonoBehaviour
                 break;
             case States.Run:
                 Run();
+                break;
+            case States.Death:
+                if (Time.time - _deathTime > 1)
+                {
+                    gameObject.SetActive(false);
+                }
+
                 break;
         }
     }
@@ -81,12 +112,12 @@ public class enemy_behaviour : MonoBehaviour
         {
             _savedTime = Time.time;
             var rand = Random.Range(0.0f, 1.0f);
-            if (rand > 0.8f)
+            if (rand > 0.75f)
             {
                 _speed = 1;
                 Flip(true);
             }
-            else if (rand > 0.6f)
+            else if (rand > 0.5f)
             {
                 _speed = -1;
                 Flip(false);

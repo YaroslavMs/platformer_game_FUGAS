@@ -38,7 +38,7 @@ public class Respawn : MonoBehaviour
             else
                 transform.position = checkpoint.transform.position;
         }
-        else if (col.gameObject.CompareTag("Enemy") && Time.time - _savedTime > 0.4)
+        else if (col.gameObject.CompareTag("Enemy") && Time.time - _savedTime > 0.6)
         {
             if (transform.position.x < col.gameObject.transform.position.x)
             {

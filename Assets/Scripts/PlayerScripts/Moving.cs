@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Moving : MonoBehaviour
@@ -5,8 +6,31 @@ public class Moving : MonoBehaviour
     public float speed;
     private bool _facingRight = true;
     private Vector2 _input = Vector2.zero;
+    public GameObject attack;
+    private float _attackTime;
 
     public Animator animator;
+
+    private void Start()
+    {
+        attack.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (Time.time - _attackTime > 0.3)
+        {
+            attack.SetActive(false);
+        }
+    }
+
+    public void Attack()
+    {
+        _attackTime = Time.time;
+        attack.SetActive(true);
+        animator.SetTrigger("attack");
+    }
+
     private void FixedUpdate()
     {
         _input = new Vector2(Input.GetAxisRaw("Horizontal"), 0); 
@@ -15,6 +39,7 @@ public class Moving : MonoBehaviour
             animator.SetBool("Walking", false);
         }
         else animator.SetBool("Walking", true);
+        
 
         if ((_input.x > 0 && !_facingRight) || (_input.x < 0 && _facingRight))
         {

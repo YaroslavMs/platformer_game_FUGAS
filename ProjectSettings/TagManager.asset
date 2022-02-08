@@ -10,6 +10,7 @@ TagManager:
   - Checkpoint
   - lastFinish
   - Enemy
+  - Attack
   layers:
   - Default
   - TransparentFX
