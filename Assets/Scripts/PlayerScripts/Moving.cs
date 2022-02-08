@@ -1,18 +1,12 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Moving : MonoBehaviour
 {
     public float speed;
     private bool _facingRight = true;
-    private int _facingWall = 1;
     private Vector2 _input = Vector2.zero;
 
     public Animator animator;
-
-    // Update is called once per frame
     private void FixedUpdate()
     {
         _input = new Vector2(Input.GetAxisRaw("Horizontal"), 0); 
@@ -27,7 +21,7 @@ public class Moving : MonoBehaviour
             Flip();
         }
 
-        transform.Translate(speed * _input * Time.deltaTime * _facingWall);
+        transform.Translate(speed * _input * Time.deltaTime);
     }
 
     public void LeftButton()
@@ -50,13 +44,5 @@ public class Moving : MonoBehaviour
         _facingRight = !_facingRight;
         transform.localScale *= new Vector2(-1, 1);
     }
-
-    private void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.CompareTag("wall"))
-        {
-            _facingWall = 0;
-        }
-        else _facingWall = 1;
-    }
+    
 }

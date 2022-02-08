@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +13,6 @@ public class ScoreOutput : MonoBehaviour
     void Update()
     {
         
-        score.text = $"{player.GetComponent<CoinsPickup>()._coinsPickedUp}";
+        score.text = $"{player.GetComponent<CoinsPickup>().coinsPickedUp}";
     }
 }

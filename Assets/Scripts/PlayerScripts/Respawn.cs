@@ -9,7 +9,6 @@ public class Respawn : MonoBehaviour
     private bool _checkpointActivated = false;
     private float _savedTime;
     public delegate void PlayerDeath(bool a);
-
     public event PlayerDeath PlayerIsDead;
     void Start()
     {
