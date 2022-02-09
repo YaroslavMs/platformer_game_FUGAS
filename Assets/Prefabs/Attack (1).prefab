@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8390886853092341055}
   - component: {fileID: 6684558601393165302}
+  - component: {fileID: 2035461525097022996}
   m_Layer: 0
   m_Name: Attack (1)
   m_TagString: Attack
@@ -47,3 +48,24 @@ CapsuleCollider2D:
   m_Offset: {x: 0.000021933396, y: 0.0822999}
   m_Size: {x: 0.9999992, y: 1.8352251}
   m_Direction: 0
+--- !u!50 &2035461525097022996
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8457619758741433531}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

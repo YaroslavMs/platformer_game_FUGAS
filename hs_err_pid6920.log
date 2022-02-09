@@ -1,0 +1,121 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 480104 bytes for AllocateHeap
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (memory/allocation.inline.hpp:61), pid=6920, tid=0x0000000000001dc4
+#
+# JRE version:  (8.0) (build )
+# Java VM: OpenJDK 64-Bit Server VM (25.71-b00 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000002b62800):  JavaThread "Unknown thread" [_thread_in_vm, id=7620, stack(0x0000000002960000,0x0000000002a60000)]
+
+Stack: [0x0000000002960000,0x0000000002a60000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x0000000002b62800 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=7620, stack(0x0000000002960000,0x0000000002a60000)]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff640c10000 - 0x00007ff640c45000 	D:\Unity\2020.3.25f1\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK\bin\java.exe
+0x00007ff842350000 - 0x00007ff8424fd000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ff842130000 - 0x00007ff84226f000 	C:\Windows\system32\KERNEL32.DLL
+0x00007ff83f570000 - 0x00007ff83f685000 	C:\Windows\system32\KERNELBASE.dll
+0x00007ff8422a0000 - 0x00007ff84234d000 	C:\Windows\system32\ADVAPI32.dll
+0x00007ff83fcb0000 - 0x00007ff83fe27000 	C:\Windows\system32\USER32.dll
+0x00007ff83d0f0000 - 0x00007ff83d36b000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.9600.19394_none_62486577ecb635cf\COMCTL32.dll
+0x00007ff840790000 - 0x00007ff84083a000 	C:\Windows\system32\msvcrt.dll
+0x00007ff840060000 - 0x00007ff8400bb000 	C:\Windows\SYSTEM32\sechost.dll
+0x00007ff83fb70000 - 0x00007ff83fca6000 	C:\Windows\system32\RPCRT4.dll
+0x00007ff840910000 - 0x00007ff840a5e000 	C:\Windows\system32\GDI32.dll
+0x00007ff83f690000 - 0x00007ff83f6be000 	C:\Windows\system32\SspiCli.dll
+0x00007ff8400c0000 - 0x00007ff8400f6000 	C:\Windows\system32\IMM32.DLL
+0x00007ff83ff00000 - 0x00007ff840051000 	C:\Windows\system32\MSCTF.dll
+0x0000000055130000 - 0x0000000055202000 	D:\Unity\2020.3.25f1\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK\jre\bin\msvcr100.dll
+0x00000000544f0000 - 0x0000000054d39000 	D:\Unity\2020.3.25f1\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK\jre\bin\server\jvm.dll
+0x00007ff80b640000 - 0x00007ff80b649000 	C:\Windows\SYSTEM32\WSOCK32.dll
+0x00007ff83cdf0000 - 0x00007ff83ce12000 	C:\Windows\SYSTEM32\WINMM.dll
+0x00007ff83dfb0000 - 0x00007ff83dfba000 	C:\Windows\SYSTEM32\VERSION.dll
+0x00007ff83fe30000 - 0x00007ff83fe37000 	C:\Windows\system32\PSAPI.DLL
+0x00007ff8408b0000 - 0x00007ff84090a000 	C:\Windows\system32\WS2_32.dll
+0x00007ff83cd80000 - 0x00007ff83cdaa000 	C:\Windows\SYSTEM32\WINMMBASE.dll
+0x00007ff842270000 - 0x00007ff842279000 	C:\Windows\system32\NSI.dll
+0x00007ff83f4c0000 - 0x00007ff83f50f000 	C:\Windows\SYSTEM32\cfgmgr32.dll
+0x00007ff83e240000 - 0x00007ff83e268000 	C:\Windows\SYSTEM32\DEVOBJ.dll
+0x00007ff838f60000 - 0x00007ff838f6f000 	D:\Unity\2020.3.25f1\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK\jre\bin\verify.dll
+0x00007ffff0b80000 - 0x00007ffff0ba9000 	D:\Unity\2020.3.25f1\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK\jre\bin\java.dll
+0x00007ff800b80000 - 0x00007ff800b96000 	D:\Unity\2020.3.25f1\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK\jre\bin\zip.dll
+
+VM Arguments:
+jvm_args: -Dfile.encoding=UTF-8 
+java_command: org.gradle.launcher.GradleMain -Dorg.gradle.jvmargs=-Xmx4096m --stop
+java_class_path (initial): D:\Unity\2020.3.25f1\Editor\Data\PlaybackEngines\AndroidPlayer\Tools\gradle\lib\gradle-launcher-6.1.1.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=D:\Unity\2020.3.25f1\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK
+JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
+PATH=C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files\PuTTY\;C:\Program Files\Git\cmd;C:\Program Files\dotnet\;C:\Users\TkachukOL\AppData\Local\Programs\Eclipse Adoptium\jdk-17.0.2.8-hotspot\bin;C:\msys64\mingw64\bin;D:\Microsoft VS Code\bin;C:\Users\TkachukOL\.dotnet\tools
+USERNAME=TkachukOL
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 94 Stepping 3, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 8.1 , 64 bit Build 9600 (6.3.9600.20237)
+
+CPU:total 4 (initial active 4) (2 cores per cpu, 2 threads per core) family 6 model 94 stepping 3, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx
+
+Memory: 4k page, physical 8323756k(982368k free), swap 11469484k(5156k free)
+
+vm_info: OpenJDK 64-Bit Server VM (25.71-b00) for windows-amd64 JRE (1.8.0-adoptopenjdk-_2018_05_19_00_59-b00), built on May 19 2018 01:02:12 by "jenkins" with MS VC++ 10.0 (VS2010)
+
+time: Tue Feb 08 21:10:27 2022
+elapsed time: 0 seconds (0d 0h 0m 0s)
+

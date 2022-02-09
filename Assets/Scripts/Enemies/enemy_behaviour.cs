@@ -14,6 +14,11 @@ public class enemy_behaviour : MonoBehaviour
     public GameObject attackChecker;
     public BoxCollider2D box1;
     public BoxCollider2D box2;
+    public bool Boss;
+    public HealthBar healthBar;
+
+    public delegate void MobDeath(string a);
+    public static event MobDeath MobIsDead;
 
     private enum States
     {
@@ -34,6 +39,11 @@ public class enemy_behaviour : MonoBehaviour
 
     private void Start()
     {
+        if (Boss)
+        {
+            _hp = 26;
+            healthBar.SetMaxHealth(_hp);
+        }
         gameObject.SetActive(true);
         _animator = GetComponent<Animator>();
         _currentState = States.Wandering;
@@ -41,12 +51,16 @@ public class enemy_behaviour : MonoBehaviour
         attackChecker.GetComponent<CheckForAttack>().AttackPerforming += Attack;
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerStay2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("Attack") && Time.time - _invincibilityTime > 0.4)
         {
             _invincibilityTime = Time.time;
             _hp -= 2;
+            if (Boss)
+            {
+                healthBar.SetHealth(_hp);
+            }
         }
     }
 
@@ -70,6 +84,8 @@ public class enemy_behaviour : MonoBehaviour
     {
         if (_hp <= 0)
         {
+            var a = Boss ? "boss" : "normal";
+            MobIsDead?.Invoke(a);
             box1.enabled = false;
             box2.enabled = false;
             attackChecker.SetActive(false);

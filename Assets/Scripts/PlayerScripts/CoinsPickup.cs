@@ -5,9 +5,24 @@ public class CoinsPickup : MonoBehaviour
 {
     [FormerlySerializedAs("_coinsPickedUp")]
     public int coinsPickedUp;
+    
     private void Start()
     {
+        enemy_behaviour.MobIsDead += KilledMob;
         coinsPickedUp = PlayerPrefs.GetInt("Score");
+    }
+
+    private void KilledMob(string a)
+    {
+        if (a == "boss")
+        {
+            coinsPickedUp += 50;
+        }
+
+        if (a == "normal")
+        {
+            coinsPickedUp += 5;
+        }
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
